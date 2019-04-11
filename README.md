@@ -64,8 +64,8 @@ CREATE TABLE user (
 ```
 
 The alternative to storing short-urls in the pins table would be to have them stored in a
-separate table and reference some pin in the pins table. Additionally, but with added
-complexity, we could also support on-demand short-url generation that possible expire
+separate table and reference them from the pins table. Additionally, but with added
+complexity, we could also support on-the-fly short-url generation that could also expire
 after some specified amount of time.
 
 #### API
@@ -87,7 +87,7 @@ Example: `GET /api/user/randomUser34534`
 }
 ```
 
-Example: `GET /api/pin?limit=10&offset=20` (get 10 pins starting at from the 20th entry)
+Example: `GET /api/pin?limit=10&offset=20` (get 10 pins starting at the 20th entry)
 ```
 [
   {
@@ -134,9 +134,9 @@ Example: `POST /api/pin`
 ```
 
 #### Server-Side Rendering
-The server render a basic HTML template and injects initial data into the template to
+The server renders a basic HTML template and injects initial data into the template to
 avoid having to make an additional request to get data to render. This initial data is a
-JSON object containing things like: currently logged into user, initial set of pins to
+JSON object containing things like: currently logged in user, initial set of pins to
 render on the given page, information about a given user if on their profile
 (`/user/francium`).
 
@@ -148,10 +148,12 @@ is deleted or inserted.
 <br/>
 
 ## Scaling and Performance
-- Any attempt to improve performance should driven by careful profiling and usage data to
-  ensure performance bottlenecks are being targeted to achieve maximum performance gains
+- Any attempt to improve performance should be driven by careful profiling and usage data
+  to ensure performance bottlenecks are being targeted to achieve maximum performance
+  gains
 - Memcached has already been integrated to cache some common bottleneck areas and avoid
-  going to the database -- namely data for rendering front page and infinite scrolling
+  going to the database on every request -- namely data for rendering front page and
+  infinite scrolling
   - Additional caching can be setup as new bottlenecks are identified based on usage
     patterns
 - Currently, primarily for small-scale development, a SQLite database has been used which
@@ -159,23 +161,23 @@ is deleted or inserted.
   such as Postgres should be used for improved performance
 - For increased work loads, load-balancers can be setup to distribute the workload across
   multiple machines, but due to the IO-bound nature of the request, such an approach may
-  not provide significant performance gains
+  not provide significant performance gains if the IO is the bottleneck
 - Browsers are able to cache some resources, but a server-side cache such as Varnish may
   provide some additional performance gains (but will need to be evaluated)
 
 <br/>
 
 ## Next Steps
-- Use higher-order components to reduce duplication
+- Use higher-order components to reduce duplication in frontend code
 - Clean up classnames and ids to make them more consistent
 - Refactor CSS rules to reduce duplication, extract common styles into reusable classes
 - Integration testing (Cypress)
 - The deployment process can be improved to enable continuous delivery and integration
-  - Requires setting up infrastructure: build server to automated test running and tools
-    to make it easier to manage deployments upon success ful builds
+  - Requires setting up infrastructure: build server to run automated tests and
+    tools to make it easier to manage deployments upon successful builds
 - Setup redundant and backup infrastructure to store database backups regularly to allow
-  for distaste recovery and handling of traffic spikes
-- Increase test coverage no backend and frontend code
+  for disaster recovery and handling of traffic spikes
+- Increase test coverage on backend and frontend code
 
 <br/>
 
