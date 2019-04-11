@@ -1,0 +1,49 @@
+{
+  "name": "clone-pinterest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "parcel watch -d qinterest/static -o bundle.js --public-url '/static' ui/index.js",
+    "build": "parcel build -d qinterest/static  -o bundle.js --public-url '/static' ui/index.js",
+    "format": "prettier --write ui/**/*.js",
+    "test": "jest --coverage ui/",
+    "test-watch": "jest -w ui/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "parcel-bundler": "^1.12.3",
+    "react-test-renderer": "^16.8.6",
+    "react-testing-library": "^6.0.4"
+  },
+  "dependencies": {
+    "actions": "^1.3.0",
+    "classnames": "^2.2.6",
+    "muicss": "^0.9.41",
+    "prettier": "^1.16.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.5",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "browserslist": [
+    "Chrome >= 70"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "jest": {
+    "testRegex": ".*\\.test\\.(ts|js)$"
+  }
+}

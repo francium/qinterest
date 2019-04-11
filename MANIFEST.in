@@ -1,0 +1,8 @@
+include README.md
+include run.sh
+include wsgi.py
+include Makefile
+graft qinterest/static
+graft qinterest/templates
+global-exclude *.pyc
+global-exclude *.map
