@@ -32,7 +32,7 @@ install-dev: venv
 		source venv/bin/activate; \
 		pip install -e .; \
 		pip install -r requirements.dev.txt; \
-		npm i
+		npm i; \
 	)
 
 package:
