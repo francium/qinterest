@@ -1,7 +1,8 @@
 <center>
-  <img src="http://qinterest.francium.cc/static/logo.png"></img>
+  <img src="qinterest/static/logo.png"></img>
   <h1>qinterest</h1>
 </center>
+
 
 ## Quickstart
 
