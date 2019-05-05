@@ -117,3 +117,7 @@ def register_routes(app: Flask):
     @app.route('/favicon.ico')
     def route_favicon():
         return send_from_directory('static', 'favicon.ico')
+
+    @app.route('/<res>')
+    def route_static_resource(res):
+        return send_from_directory('static', res)

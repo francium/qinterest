@@ -1,3 +1,4 @@
+import 'react-hot-loader' // Must to be before React
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'

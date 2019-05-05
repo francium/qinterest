@@ -9,6 +9,7 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
+import { hot } from 'react-hot-loader/root'
 
 import Gallery from './gallery'
 import NewPin from './new-pin'
@@ -87,10 +88,12 @@ const mappStateToProps = state => ({
   loadingPins: state.loadingPins,
 })
 
-export default connect(
-  mappStateToProps,
-  {initAction, fetchMorePins},
-)(App)
+export default hot(
+  connect(
+    mappStateToProps,
+    {initAction, fetchMorePins},
+  )(App)
+)
 
 function formatError(error) {
   const message = {

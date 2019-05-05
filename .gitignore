@@ -17,3 +17,4 @@ bundle.js
 bundle.js.map
 coverage/
 .env
+*.hot-update.js*

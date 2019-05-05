@@ -34,5 +34,18 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   devtool: 'inline-source-map',
+  devServer: {
+    hot: true,
+    writeToDisk: true,
+    port: 9000
+  },
 }
