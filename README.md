@@ -183,6 +183,8 @@ is deleted or inserted.
 
 ## Development
 
+- Create an `.env` file (see Quickstart section above)
+- Change the FLASK_ENV environment variable in the `.env` file to `development`
 - Install python development requirements using `make install-dev`.
 - Build frontend code using `make frontend-watch` (hot-reload enabled).
 - Run backend in development mode using `make run` (hot-reloading enabled).
